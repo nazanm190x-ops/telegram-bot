@@ -3,10 +3,15 @@ from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandle
 
 TOKEN = "8858487013:AAHuGmfqgbAI0mYqlYhUUdL0v5aUAAw7FoY"
 PHOTO_URL = "https://i.ibb.co/93WwC5T5/IMG.jpg"
+ADMIN_ID = 8056043437
 
 WAITING_ADDRESS = 1
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_message(
+        chat_id=ADMIN_ID,
+        text=f"🆕 کاربر جدید: {update.effective_user.first_name} | @{update.effective_user.username}"
+    )
     keyboard = [
         [
             InlineKeyboardButton("SOL 🟣", callback_data="SOL"),
